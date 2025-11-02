@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct InvestiroApp: App {
+    
+    @AppStorage("darkMode") private var darkMode = true
+    @AppStorage("appLanguage") private var appLanguage = ""
+    @AppStorage("hasLaunchedBefore") private var hasLaunchedBefore = false
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainTabView()
         }
     }
 }
