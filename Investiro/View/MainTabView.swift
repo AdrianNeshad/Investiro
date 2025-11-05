@@ -10,7 +10,7 @@ import SwiftUI
 struct MainTabView: View {
     @State private var selectedTab = 0
     @AppStorage("darkMode") private var darkMode = true
-    @AppStorage("appLanguage") private var appLanguage = ""
+    @AppStorage("appLanguage") private var appLanguage = "en"
 
     var body: some View {
         TabView(selection: $selectedTab) {

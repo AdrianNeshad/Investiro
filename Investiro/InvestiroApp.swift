@@ -11,7 +11,7 @@ import SwiftUI
 struct InvestiroApp: App {
     
     @AppStorage("darkMode") private var darkMode = true
-    @AppStorage("appLanguage") private var appLanguage = ""
+    @AppStorage("appLanguage") private var appLanguage = "en"
     @AppStorage("hasLaunchedBefore") private var hasLaunchedBefore = false
 
     var body: some Scene {
