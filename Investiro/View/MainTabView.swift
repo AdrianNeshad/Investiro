@@ -14,27 +14,17 @@ struct MainTabView: View {
     
     var body: some View {
         TabView(selection: $selectedTab) {
-            Tab(StringManager.shared.get("feed", systemImage: "newspaper") {
+            Tab(StringManager.shared.get("feed"), systemImage: "newspaper", value: 0) {
                 IndexView()
             }
-            Tab(StringManager.shared.get("settings"), systemImage: "gear") {
+            Tab(StringManager.shared.get("settings"), systemImage: "gear", value: 1) {
                 SettingsView()
             }
+            Tab(StringManager.shared.get("search"), systemImage: "magnifyingglass", value: 2, role: .search) {
+                   SearchView()
+                    .navigationTitle(StringManager.shared.get("search"))
+            }
         }
-        /*
-         IndexView()
-         .tabItem {
-         Label(StringManager.shared.get("feed"), systemImage: "newspaper")
-         }
-         .tag(0)
-         SettingsView()
-         .tabItem {
-         Label(StringManager.shared.get("settings"), systemImage: "gear")
-         }
-         }
-         .preferredColorScheme(darkMode ? .dark : .light)
-         }
-         */
     }
 }
 

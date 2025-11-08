@@ -23,6 +23,7 @@ class StringManager {
         "checkin": "Check in",
         "givefeedback": "Give feedback",
         "otherapps": "Other apps",
+        "search": "Search",
         
     ]
 
@@ -38,6 +39,7 @@ class StringManager {
         "checkin": "Kolla in",
         "givefeedback": "Ge feedback",
         "otherapps": "Andra appar",
+        "search": "Sök",
         
         
     ]
