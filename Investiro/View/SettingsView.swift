@@ -50,45 +50,21 @@ struct SettingsView: View {
                         }
                     }
                     .toggleStyle(SwitchToggleStyle(tint: .blue))
-
-                    Button(action: {
-                        showAppIconSelector = true
-                    }) {
-                        HStack {
-                            Label {
-                                Text(StringManager.shared.get("väljappikon"))
-                                    .foregroundColor(.blue)
-                            } icon: {
-                                Image(systemName: "app.dashed")
-                                    .foregroundColor(.blue)
-                            }
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                                .font(.caption)
-                                .foregroundColor(.secondary)
-                            }
-                    }
-                    .alert(isPresented: $showCountryAlert) {
-                        Alert(
-                            title: Text(StringManager.shared.get("bytland")),
-                            message: Text(""),
-                            dismissButton: .default(Text("OK"))
-                        )
-                    }
                 }
-                Section(header: Text(StringManager.shared.get("om"))) {
+                
+                Section(header: Text(StringManager.shared.get("about"))) {
                     Button(action: {
                         requestReview()
                     }) {
-                        Label(StringManager.shared.get("betygsätt"), systemImage: "star")
+                        Label(StringManager.shared.get("rate"), systemImage: "star")
                     }
                     Button(action: {
                         showShareSheet = true
                     }) {
-                        Label(StringManager.shared.get("delaappen"), systemImage: "square.and.arrow.up")
+                        Label(StringManager.shared.get("shareapp"), systemImage: "square.and.arrow.up")
                     }
                     .sheet(isPresented: $showShareSheet) {
-                        let message = StringManager.shared.get("kollain")
+                        let message = StringManager.shared.get("checkin")
                         let appLink = URL(string: "https://apps.apple.com/us/app/unifeed/id6746576849")!
                         ShareSheet(activityItems: [message, appLink])
                             .presentationDetents([.medium])
@@ -100,17 +76,26 @@ struct SettingsView: View {
                             mailErrorAlert = true
                         }
                     }) {
-                        Label(StringManager.shared.get("gefeedback"), systemImage: "envelope")
+                        Label(StringManager.shared.get("givefeedback"), systemImage: "envelope")
                     }
                     .sheet(isPresented: $showMailFeedback) {
                         MailFeedback(isShowing: $showMailFeedback,
                                      recipientEmail: "Adrian.neshad1@gmail.com",
-                                     subject: StringManager.shared.get("unifeedfeedback"),
+                                     subject: "Univert feedback",
                                      messageBody: "")
                     }
                 }
                 
-                Section(header: Text(StringManager.shared.get("andraappar"))) {
+                Section(header: Text(StringManager.shared.get("otherapps"))) {
+                    Link(destination: URL(string: "https://apps.apple.com/us/app/unifeed-newsfeed/id6746872036")!) {
+                        HStack {
+                            Image("unifeed")
+                                .resizable()
+                                .frame(width: 30, height: 30)
+                                .cornerRadius(8)
+                            Text("Unifeed - Newsfeed")
+                        }
+                    }
                     Link(destination: URL(string: "https://apps.apple.com/us/app/univert/id6745692591")!) {
                         HStack {
                             Image("univert")
@@ -135,15 +120,8 @@ struct SettingsView: View {
                 }
                 
                 Section {
-                    EmptyView()
                 } footer: {
-                    VStack(spacing: 4) {
-                        AppVersion()
-                    }
-                    .font(.caption)
-                    .foregroundColor(.gray)
-                    .frame(maxWidth: .infinity, alignment: .center)
-                    .padding(.top, -100)
+                    AppVersion()
                 }
             }
             .navigationTitle(StringManager.shared.get("settings"))

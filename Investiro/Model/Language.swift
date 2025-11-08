@@ -17,8 +17,12 @@ class StringManager {
         "language": "Language",
         "darkmode": "Dark Mode",
         "general": "General",
-        
-        
+        "about": "About",
+        "rate": "Rate",
+        "shareapp": "Share app",
+        "checkin": "Check in",
+        "givefeedback": "Give feedback",
+        "otherapps": "Other apps",
         
     ]
 
@@ -28,6 +32,13 @@ class StringManager {
         "language": "Språk",
         "darkmode": "Mörkt läge",
         "general": "Allmänt",
+        "about": "Om",
+        "rate": "Betygsätt",
+        "shareapp": "Dela appen",
+        "checkin": "Kolla in",
+        "givefeedback": "Ge feedback",
+        "otherapps": "Andra appar",
+        
         
     ]
     
