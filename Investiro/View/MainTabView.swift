@@ -12,10 +12,14 @@ struct MainTabView: View {
     @AppStorage("darkMode") private var darkMode = true
     @AppStorage("appLanguage") private var appLanguage = "en"
     
+    @State private var pendingNewsItem: NewsItem? = nil
+    @StateObject var viewModel = FeedViewModel()
+    
     var body: some View {
         TabView(selection: $selectedTab) {
             Tab(StringManager.shared.get("feed"), systemImage: "newspaper", value: 0) {
                 IndexView()
+                    .environmentObject(viewModel)
             }
             Tab(StringManager.shared.get("settings"), systemImage: "gear", value: 1) {
                 SettingsView()
