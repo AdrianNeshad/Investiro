@@ -13,20 +13,11 @@ import AlertToast
 struct SettingsView: View {
     @AppStorage("darkMode") private var darkMode = true
     @AppStorage("appLanguage") private var appLanguage = "en"
-    @AppStorage("adsRemoved") private var adsRemoved = false
     @State private var showShareSheet = false
-    @State private var showRestoreAlert = false
-    @State private var showPurchaseSheet = false
-    @State private var restoreStatus: RestoreStatus?
     @State private var showMailFeedback = false
     @State private var mailErrorAlert = false
-    @State private var showClearAlert = false
     @State private var showToast = false
     @State private var toastMessage = ""
-    @State private var showAppIconSelector = false
-    @State private var showNotificationSheet = false
-    @State private var showNotificationAlert = false
-    @State private var showCountryAlert = false
 
     enum RestoreStatus {
         case success, failure
@@ -107,7 +98,7 @@ struct SettingsView: View {
                     }
                     Link(destination: URL(string: "https://apps.apple.com/us/app/flixswipe-explore-new-movies/id6746716902")!) {
                         HStack {
-                            Image("flixswipe")
+                            Image("swipeflix")
                                 .resizable()
                                 .frame(width: 30, height: 30)
                                 .cornerRadius(8)
